@@ -1,0 +1,9 @@
+name: cAlertManager
+version: '1.0.0'
+main: io.chxxchi.cAlertManager.CAlertManager
+api-version: '1.21'
+authors: [ chxxchi ]
+website: https://github.com/chxxchi
+commands:
+  경고관리:
+  경고:
