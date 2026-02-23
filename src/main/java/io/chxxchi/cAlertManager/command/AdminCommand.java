@@ -46,7 +46,7 @@ public class AdminCommand implements CommandExecutor, TabCompleter {
 
             String targetName = args[1];
             OfflinePlayer op = Bukkit.getOfflinePlayer(targetName);
-            if (!op.hasPlayedBefore()) {
+            if (!op.isOnline() && !op.hasPlayedBefore()) {
                 info(player, "서버에 접속한 기록이 없는 유저입니다.");
                 return;
             }
@@ -69,12 +69,12 @@ public class AdminCommand implements CommandExecutor, TabCompleter {
                 return;
             }
 
-            OfflinePlayer of = Bukkit.getOfflinePlayer(args[1]);
-            if (!of.hasPlayedBefore()) {
+            OfflinePlayer op = Bukkit.getOfflinePlayer(args[1]);
+            if (!op.isOnline() && !op.hasPlayedBefore()) {
                 info(player, "서버에 접속한 기록이 없는 유저입니다.");
                 return;
             }
-            UUID targetUUID = of.getUniqueId();
+            UUID targetUUID = op.getUniqueId();
 
             String value = args[2];
             String koreanType = "";
