@@ -3,12 +3,18 @@ package io.chxxchi.cAlertManager.registry;
 import eu.okaeri.configs.OkaeriConfig;
 import eu.okaeri.configs.annotation.Comment;
 import io.chxxchi.cAlertManager.module.AlertLog;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.*;
 
 public class AlertRegistry extends OkaeriConfig {
+    @Setter
+    @Getter
     private int maxAlertCount = 10;
 
+    @Setter
+    @Getter
     @Comment("유저별 경고 로그")
     private Map<UUID, List<AlertLog>> alertMap = new HashMap<>();
 
@@ -35,19 +41,4 @@ public class AlertRegistry extends OkaeriConfig {
         getAlertLogs(uuid).add(alertLog);
     }
 
-    public Map<UUID, List<AlertLog>> getAlertMap() {
-        return alertMap;
-    }
-
-    public void setAlertMap(Map<UUID, List<AlertLog>> alertMap) {
-        this.alertMap = alertMap;
-    }
-
-    public int getMaxAlertCount() {
-        return maxAlertCount;
-    }
-
-    public void setMaxAlertCount(int maxAlertCount) {
-        this.maxAlertCount = maxAlertCount;
-    }
 }
